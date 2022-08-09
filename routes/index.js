@@ -25,16 +25,14 @@ router.get('/getData', function(req, res, next) {
     res.send(result);
   });
 });
-router.post('/insert/',function (req,res){
-  var descriptionG = req.body.descriptionz;
-  var linkG = req.body.linkz;
-  var categoryidG = req.body.categoryidz;
-  WallPapers.insertMany([{description:descriptionG,link:linkG,categoryid:categoryidG}],function (error,result){
-    // res.send("Thanh Cong")
-    res.send(descriptionG+" -- "+linkG+" -- "+categoryidG);
-  })
-  // res.send(descriptionG+" -- "+linkG+" -- "+categoryidG);
-
+router.get('/insert/',function (req,res){
+   var descriptionG = req.query.descriptionz;
+   var linkG = req.query.linkz;
+   var categoryidG = req.query.categoryidz;
+     WallPapers.insertMany([{description:descriptionG,link:linkG,categoryid:categoryidG}],function (error,result){
+       // res.send("Thanh Cong")
+       res.send("Thanh Cong");
+     })
 })
 
 module.exports = router;
